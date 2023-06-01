@@ -15,6 +15,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
+  <!-- JS -->
+  <script type="module" src="./src/scripts/database.js" defer></script>
+  <script type="module" src="./src/scripts/index.js" defer></script>
+
 
   <title>Criando rede social</title>
 </head>
@@ -70,10 +74,18 @@
           programa de estágio, com o prazo de inscrições entre os dias 10 e 28 de agosto.</p>
         <div class="div__buttons">
           <button class="button-modal post-button">Abrir post</button>
-          <img src="./src/assets/img/like_icon.png" alt="">
+          <img src="./src/assets/img/heart-grey.jpeg" alt="">
         </div>
     </section>
   </main>
+
+  <dialog class="modal" id="modal">
+
+  </dialog>
+
+  <dialog class="home__modal">
+    <div class="dialog__modal"></div>
+  </dialog>
 </body>
 
 </html>
