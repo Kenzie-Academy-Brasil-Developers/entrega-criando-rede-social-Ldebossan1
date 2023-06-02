@@ -1,54 +1,62 @@
-import { suggestUsers } from "./database";
-import { renderPosts } from "./posts";
+import { suggestUsers } from "./database.js";
+import { renderPosts } from "./posts.js";
 
-renderItems()
-renderPosts()
+renderItems();
+renderPosts();
+
+
 
 function renderItems() {
-    for (let i = 0; i < suggestUsers.length; i++){
-        const ulSuggest = document.querySelectorAll('suggestions__list')
-        
-        const listSuggest = document.createElement('li')
-        listSuggest.classList.add('suggestions__item')
+    for (let i = 0; i < suggestUsers.length; i++) {
 
-        const divSuggest = document.createElement('div')
-        divSuggest.classList.add('div__user')
+        const ulSuggestion = document.querySelector(".suggestions__list");
 
-        const divSuggestImg = document.createElement('div')
-        divSuggestImg.classList.add('div__img')
+        const listSuggestion = document.createElement("li");
+        listSuggestion.classList.add("suggestions__item");
 
-        const imgSuggest = document.createElement('img')
-        const divSuggestUser = document.createElement('div')
-        divSuggestUser.classList.add('div__user-name')
+        const divSuggestion = document.createElement("div");
+        divSuggestion.classList.add("div__user");
 
-        const h3SuggestUser = document.createElement('h3')
-        const spanSuggestUser = document.createElement('span')
-        const buttonSuggest = document.createElement('button')
-        buttonSuggest.addEventListener('click', () => {
-            buttonSuggest.classList.toggle('following')
-            if (buttonSuggest.textContent == 'Seguir'){
-                buttonSuggest.textContent = 'Seguindo'
-            } else {
-                buttonSuggest.textContent = 'Seguir'
+        const divSuggestionImg = document.createElement("div");
+        divSuggestionImg.classList.add("div__img");
+
+        const imgSuggestions = document.createElement("img");
+
+        const divSuggestionUser = document.createElement("div");
+        divSuggestionUser.classList.add("div__user-name");
+
+        const h3SuggestionUser = document.createElement("h3");
+        const spanSuggestionUser = document.createElement("span");
+
+        const buttonSuggestion = document.createElement("button");
+        buttonSuggestion.addEventListener("click", () => {
+            buttonSuggestion.classList.toggle("following")
+            if (buttonSuggestion.textContent == "Seguir") {
+                buttonSuggestion.textContent = "Seguindo"
+            }
+            else {
+                buttonSuggestion.textContent = "Seguir"
             }
         })
+        buttonSuggestion.classList.add("section__aside--button");
 
-        buttonSuggest.classList.add('section__aside--button')
+        h3SuggestionUser.textContent = suggestUsers[i].user;
+        spanSuggestionUser.textContent = suggestUsers[i].stack;
+        imgSuggestions.src = suggestUsers[i].img
+        buttonSuggestion.textContent = "Seguir";
 
-        h3SuggestUser.textContent = suggestUsers[i].user
-        spanSuggestUser.textContent = suggestUsers[i].stack
-        imgSuggest.src = suggestUsers[i].img
-        buttonSuggest.textContent = 'Seguir'
+        divSuggestionImg.appendChild(imgSuggestions);
+        divSuggestionUser.appendChild(h3SuggestionUser);
+        divSuggestionUser.appendChild(spanSuggestionUser);
 
-        divSuggestImg.appendChild(imgSuggest)
-        divSuggestUser.appendChild(h3SuggestUser)
-        divSuggestUser.appendChild(spanSuggestUser)
+        divSuggestion.appendChild(divSuggestionImg);
+        divSuggestion.appendChild(divSuggestionUser);
 
-        divSuggest.appendChild(divSuggestImg)
-        divSuggest.appendChild(divSuggestUser)
-
-        listSuggest.appendChild(divSuggest)
-        listSuggest.appendChild(buttonSuggest)
-        ulSuggest.appendChild(listSuggest)
+        listSuggestion.appendChild(divSuggestion);
+        listSuggestion.appendChild(buttonSuggestion);
+        ulSuggestion.appendChild(listSuggestion);
     }
+
 }
+
+
